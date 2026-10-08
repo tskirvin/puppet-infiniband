@@ -10,8 +10,8 @@ require 'facter/util/infiniband'
 
 Facter.add(:infiniband_fw_versions) do
   confine has_infiniband: true
-  ports = Facter::Util::Infiniband.ports
   setcode do
+    ports = Facter::Util::Infiniband.ports
     versions = {}
     ports.each do |port|
       fw_version = Facter::Util::Infiniband.get_port_fw_version(port)
