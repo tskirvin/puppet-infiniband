@@ -132,6 +132,7 @@ class Facter::Util::Infiniband
     unless Facter::Core::Execution.which('ibstat')
       return {}
     end
+
     output = Facter::Core::Execution.execute("ibstat -p #{hca}")
     output.each_line.with_index do |line, index|
       guid = line.strip
@@ -206,6 +207,7 @@ class Facter::Util::Infiniband
     unless Facter::Core::Execution.which('ibdev2netdev')
       return {}
     end
+
     output = Facter::Core::Execution.execute('ibdev2netdev')
     return {} if output.nil?
     return {} if output.strip.empty?

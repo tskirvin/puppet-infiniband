@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # Fact: infiniband_fw_versions
 #
 # Purpose: Report the version of all InfiniBand hardware
@@ -19,7 +21,7 @@ Facter.add(:infiniband_fw_versions) do
         versions[port] = fw_version
       end
     end
-  
+
     if versions.empty?
       nil
     else
